@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  crypto:
+    image: node:14
+    container_name: crypto
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: bash -c "npm install && apt-get update && apt-get install -y chromium && apt-get install -y libgconf-2-4 libatk1.0-0 libatk-bridge2.0-0 libgdk-pixbuf2.0-0 libgtk-3-0 libgbm-dev libnss3-dev libxss-dev && npm start"
