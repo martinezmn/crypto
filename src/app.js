@@ -54,7 +54,9 @@ client.on("message", async (message) => {
 
 for (const event of Events) {
   if (event.event === "loop") {
-    event.action(client);
+    setInterval(async function () {
+      await event.action(client);
+    }, Number(process.env.INTERVAL));
   }
 }
 
